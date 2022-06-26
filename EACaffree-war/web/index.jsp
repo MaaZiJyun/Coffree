@@ -44,15 +44,21 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">First</th>
-                                <th scope="col">Last</th>
-                                <th scope="col">Handle</th>
+                                <th scope="col">User Name</th>
+                                <th scope="col">Coffee Name</th>
+                                <th scope="col">Sugar</th>
+                                <th scope="col">Temperature</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                            <th scope="row">1</th>
+                                <th scope="row">1</th>
                                 <td>Mark</td>
+                                <td>Coffee</td>
+                                <td>5</td>
+                                <td>5</td>
                                 <td>Otto</td>
                                 <td>@mdo</td>
                             </tr>

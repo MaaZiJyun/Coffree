@@ -35,6 +35,10 @@
                       </li>
                     </ul>
                 </div>
+            <form class="d-flex" action="search" method="POST">
+                <input class="form-control me-2" name="search_id" type="search" placeholder="Search by ID">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
             </div>
         </nav>
         <div class="container mt-5">

@@ -80,6 +80,9 @@ public class TestServlet extends HttpServlet {
             case "/update":
                 updateCoffee(request, response);
                 break;
+            case "/search":
+                searchCoffee(request, response);
+                break;
             default:
                 listCoffee(request, response);
                 break;
@@ -134,6 +137,14 @@ public class TestServlet extends HttpServlet {
  
         databaseSession.update(id, u_name, c_name, sugar, temperature);
         response.sendRedirect("list");
+    }
+
+    private void searchCoffee(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String id = request.getParameter("search_id");
+        Map<String, String> exCoffee = databaseSession.selectById(id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("CoffeeForm.jsp");
+        request.setAttribute("coffee", exCoffee);
+        dispatcher.forward(request, response);
     }
 }
 

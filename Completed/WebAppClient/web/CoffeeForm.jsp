@@ -45,10 +45,10 @@
         </c:if>
         <h2>
             <c:if test="${coffee != null}">
-                Edit Book
+                Edit Coffee
             </c:if>
             <c:if test="${coffee == null}">
-                Add New Book
+                Add New Coffee
             </c:if>
         </h2>
         <c:if test="${coffee != null}">

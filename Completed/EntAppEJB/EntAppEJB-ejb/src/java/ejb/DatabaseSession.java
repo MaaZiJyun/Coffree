@@ -20,7 +20,7 @@ import java.util.Map;
  * @author 37409
  */
 @Stateless
-public class DatabaseSession implements DatabaseSessionRemote {
+public class DatabaseSession implements DatabaseSessionRemote, DatabaseSessionLocal {
 
     private Connection conn = null;
     private Statement st = null;

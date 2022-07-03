@@ -32,58 +32,79 @@
                         <a class="nav-link" href="list">List All Orders</a>
                       </li>
                     </ul>
+                </div>
             </div>
-        </div>
-    </nav>
-        <div class="container mt-5" style="width: 30%; margin: 0 auto">
+        </nav>
         
-        <c:if test="${coffee != null}">
-            <form action="update" method="post">
-        </c:if>
-        <c:if test="${coffee == null}">
-            <form action="insert" method="post">
-        </c:if>
-        <h2>
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Order Form</h1>
+                <p class="lead text-muted">
+                    Caffree will provide you with free coffee, please fill in the form by yourself so that the staff can serve you what you like.
+                </p>
+                <form class="d-flex" action="searchByName" method="POST">
+                    <input class="form-control me-2" name="search_name" type="search" placeholder="Search by Name">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+                </div>
+            </div>
+        </section>
+        
+        <div class="container mb-5" style="width: 30%; margin: 0 auto">
             <c:if test="${coffee != null}">
-                Edit Coffee
+                <form action="update" method="post">
             </c:if>
             <c:if test="${coffee == null}">
-                Add New Coffee
+                <form action="insert" method="post">
             </c:if>
-        </h2>
-        <c:if test="${coffee != null}">
-            <input type="hidden" name="id" value="<c:out value='${coffee.id}' />" />
-        </c:if>
-        <div class="mb-3">
-            <label for="title" class="form-label">Username</label>
-            <input type="text" class="form-control" name="u_name" size="45"
-            value="<c:out value='${coffee.u_name}' />"
-        />
+            <c:if test="${coffee != null}">
+                <input type="hidden" name="id" value="<c:out value='${coffee.id}' />" />
+            </c:if>
+            <div class="mb-3">
+                <label for="title" class="form-label">Username</label>
+                <input type="text" class="form-control" name="u_name" size="45"
+                value="<c:out value='${coffee.u_name}' />"
+            />
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Coffee Name</label>
+                <input type="text" class="form-control" name="c_name" size="45"
+                value="<c:out value='${coffee.c_name}' />"
+            />
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Sugar</label>
+    <!--            <input type="text" class="form-control" name="sugar" size="45"
+                value="<c:out value='${coffee.sugar}' />"/>-->
+                <input type="range" class="form-range" min="0" max="4" name="sugar"
+                value="<c:out value='${coffee.sugar}' />"/>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Temperature</label>
+    <!--            <input type="text" class="form-control" name="temperature" size="45"
+                value="<c:out value='${coffee.temperature}' />"/>-->
+                <input type="range" class="form-range" min="0" max="4" name="temperature"
+                value="<c:out value='${coffee.temperature}' />"/>
+            </div>
+            <div class="d-grid mt-5">
+                <input type="submit" class="btn btn-dark" value="Save" />
+            </div>
+            </form>
         </div>
-        <div class="mb-3">
-            <label for="title" class="form-label">Coffee Name</label>
-            <input type="text" class="form-control" name="c_name" size="45"
-            value="<c:out value='${coffee.c_name}' />"
-        />
+            
+        <div class="container mt-5">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <p class="col-md-4 mb-0 text-muted">&copy; 2022 idk, Inc</p>
+
+              <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">MA ZHIYUAN</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">WANG YIDA</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">ZHANG ZIRUI</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">JU YANSONG</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">LIN ZIWEN</a></li>
+              </ul>
+            </footer>
         </div>
-        <div class="mb-3">
-            <label for="title" class="form-label">Sugar</label>
-<!--            <input type="text" class="form-control" name="sugar" size="45"
-            value="<c:out value='${coffee.sugar}' />"/>-->
-            <input type="range" class="form-range" min="0" max="4" name="sugar"
-            value="<c:out value='${coffee.sugar}' />"/>
-        </div>
-        <div class="mb-3">
-            <label for="title" class="form-label">Temperature</label>
-<!--            <input type="text" class="form-control" name="temperature" size="45"
-            value="<c:out value='${coffee.temperature}' />"/>-->
-            <input type="range" class="form-range" min="0" max="4" name="temperature"
-            value="<c:out value='${coffee.temperature}' />"/>
-        </div>
-        <div class="d-grid mt-5">
-            <input type="submit" class="btn btn-dark" value="Save" />
-        </div>
-        </form>
-    </div>  
     </body>
 </html>

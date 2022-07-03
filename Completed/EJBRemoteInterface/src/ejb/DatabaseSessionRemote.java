@@ -25,4 +25,6 @@ public interface DatabaseSessionRemote {
 
     public Map<String, String> selectById(String id);
     
+    public ArrayList<Map<String, String>> selectByName(String searchName);
+    
 }

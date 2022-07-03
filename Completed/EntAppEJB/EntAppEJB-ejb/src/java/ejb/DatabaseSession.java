@@ -206,4 +206,46 @@ public class DatabaseSession implements DatabaseSessionRemote {
             return coffee;
         }
     }
+    
+    
+    @Override
+    public ArrayList<Map<String, String>> selectByName(String searchName){
+        connect();
+        
+        Map<String, String> coffee = new HashMap<>();
+        ArrayList<Map<String, String>> coffeeList = new ArrayList<>();
+        
+        try{
+            
+            String sql = "SELECT * FROM coffee WHERE u_name=?";
+ 
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, searchName);
+            ResultSet result = statement.executeQuery();
+
+            while (result.next()){
+                coffee = new HashMap<>();
+                
+                String id = result.getString("id");
+                String u_name = result.getString("u_name");
+                String c_name = result.getString("c_name");
+                String sugar = result.getString("sugar");
+                String temperature = result.getString("temperature");
+                
+                coffee.put("id", id);
+                coffee.put("u_name", u_name);
+                coffee.put("c_name", c_name);
+                coffee.put("sugar", sugar);
+                coffee.put("temperature", temperature);
+                
+                coffeeList.add(coffee);
+            }
+            
+            disconnect();
+            return coffeeList;
+        }catch(SQLException e){
+            System.out.println(e);
+            return coffeeList;
+        }
+    }
 }

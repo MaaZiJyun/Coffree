@@ -41,35 +41,65 @@
             </form>
             </div>
         </nav>
-        <div class="container mt-5">
-        <h2>List of Order</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Username</th>
-                <th scope="col">Coffee Name</th>
-                <th scope="col">Sugar</th>
-                <th scope="col">Temperature</th>
-                <th scope="col">Actions</th>
-            </tr>
-            </thead>
-            <tbody>
-            <c:forEach var="coffee" items="${coffeeList}">
-                <tr>
-                    <th scope="row"><c:out value="${coffee.id}" /></td>
-                    <td><c:out value="${coffee.u_name}" /></td>
-                    <td><c:out value="${coffee.c_name}" /></td>
-                    <td><c:out value="${coffee.sugar}" /></td>
-                    <td><c:out value="${coffee.temperature}" /></td>
-                    <td>
-                        <a class="btn btn-outline-primary" href="edit?id=<c:out value='${coffee.id}' />">Edit</a>
-                        <a class="btn btn-outline-danger" href="delete?id=<c:out value='${coffee.id}' />">Delete</a>                     
-                    </td>
+        
+        <section class="py-5 text-center container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">List of Order</h1>
+                <p class="lead text-muted">
+                    Caffree will provide you with free coffee, please fill in the form by yourself so that the staff can serve you what you like.
+                </p>
+                <form class="d-flex" action="searchByName" method="POST">
+                    <input class="form-control me-2" name="search_name" type="search" placeholder="Search by Name">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+                </div>
+            </div>
+        </section>
+
+        
+        <div class="container mt-5 mb-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Username</th>
+                    <th scope="col">Coffee Name</th>
+                    <th scope="col">Sugar</th>
+                    <th scope="col">Temperature</th>
+                    <th scope="col">Actions</th>
                 </tr>
-            </c:forEach>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                <c:forEach var="coffee" items="${coffeeList}">
+                    <tr>
+                        <th scope="row"><c:out value="${coffee.id}" /></td>
+                        <td><c:out value="${coffee.u_name}" /></td>
+                        <td><c:out value="${coffee.c_name}" /></td>
+                        <td><c:out value="${coffee.sugar}" /></td>
+                        <td><c:out value="${coffee.temperature}" /></td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="edit?id=<c:out value='${coffee.id}' />">Edit</a>
+                            <a class="btn btn-outline-danger" href="delete?id=<c:out value='${coffee.id}' />">Delete</a>                     
+                        </td>
+                    </tr>
+                </c:forEach>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="container mt-5">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+              <p class="col-md-4 mb-0 text-muted">&copy; 2022 idk, Inc</p>
+
+              <ul class="nav col-md-4 justify-content-end">
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">MA ZHIYUAN</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">WANG YIDA</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">ZHANG ZIRUI</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">JU YANSONG</a></li>
+                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">LIN ZIWEN</a></li>
+              </ul>
+            </footer>
+        </div>
     </body>
 </html>

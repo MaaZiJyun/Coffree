@@ -83,6 +83,9 @@ public class TestServlet extends HttpServlet {
             case "/search":
                 searchCoffee(request, response);
                 break;
+            case "/searchByName":
+                searchCoffeeByName(request, response);
+                break;
             default:
                 listCoffee(request, response);
                 break;
@@ -144,6 +147,14 @@ public class TestServlet extends HttpServlet {
         Map<String, String> exCoffee = databaseSession.selectById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("CoffeeForm.jsp");
         request.setAttribute("coffee", exCoffee);
+        dispatcher.forward(request, response);
+    }
+    
+    private void searchCoffeeByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String searchName = request.getParameter("search_name");
+        ArrayList<Map<String, String>> coffeeList = databaseSession.selectByName(searchName);
+        request.setAttribute("coffeeList", coffeeList);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("CoffeeList.jsp");
         dispatcher.forward(request, response);
     }
 }

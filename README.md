@@ -36,11 +36,11 @@ CREATE TABLE `coffee` (
 
 
 ## 2 reusable UI
-Coffee Form Page
+Coffee List Page
 ![alt text](https://github.com/MaaZiJyun/Coffree/blob/main/images/1656562380757.png)
 
 
-Coffee List Page
+Coffee Form Page
 ![alt text](https://github.com/MaaZiJyun/Coffree/blob/main/images/1656562413847.png)
 
 ## 5 Functions

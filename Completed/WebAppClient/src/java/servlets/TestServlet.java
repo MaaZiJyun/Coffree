@@ -5,7 +5,6 @@
 package servlets;
 
 import ejb.DatabaseSessionRemote;
-import ejb.MySessionRemote;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -27,9 +26,6 @@ public class TestServlet extends HttpServlet {
 
     @EJB
     private DatabaseSessionRemote databaseSession;
-
-    @EJB
-    private MySessionRemote mySession;
 
     //This annotation INJECTS the TestEJBRemove object from EJB 
     //into this attribute

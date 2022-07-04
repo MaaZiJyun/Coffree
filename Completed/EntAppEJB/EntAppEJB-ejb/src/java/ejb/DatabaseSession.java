@@ -23,10 +23,10 @@ import java.util.Map;
 public class DatabaseSession implements DatabaseSessionRemote, DatabaseSessionLocal {
 
     private Connection conn = null;
-    private Statement st = null;
-    private ResultSet rs = null;
+//    private Statement st = null;
+//    private ResultSet rs = null;
     
-    public void connect(){
+    private void connect(){
         System.out.println("DATABASE: Database Connecting");
         String driver = "com.mysql.cj.jdbc.Driver";
         String url = "jdbc:mysql://localhost:3306/";
@@ -43,7 +43,7 @@ public class DatabaseSession implements DatabaseSessionRemote, DatabaseSessionLo
         } //catch  
     }
     
-    protected void disconnect(){
+    private void disconnect(){
         try {
             if (conn != null && !conn.isClosed()) {
                 conn.close();

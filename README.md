@@ -1,5 +1,8 @@
 # Coffree
 ## Intormation
+
+A simple example web app written in JAVA.
+
 Present Vid: https://youtu.be/2FcEbZHUz3s
 
 
